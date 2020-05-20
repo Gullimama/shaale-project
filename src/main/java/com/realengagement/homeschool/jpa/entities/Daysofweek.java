@@ -12,5 +12,18 @@ public class Daysofweek {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String day;
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public void setDay(String day) {
+		this.day = day;
+	} 
 
 }

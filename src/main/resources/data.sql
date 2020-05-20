@@ -22,11 +22,21 @@ CREATE TABLE materialtypes (
   material_type VARCHAR(20)
 );
 
+INSERT INTO materialtypes (material_type) VALUES 
+  ('Study'), 
+  ('Assignment')
+  ;
+
 CREATE TABLE holiday (
   id INT AUTO_INCREMENT PRIMARY KEY,
   dated DATE,
   reason VARCHAR(100)
 );
+
+INSERT INTO holiday (dated, reason) VALUES 
+  (parsedatetime('02-10-2020', 'dd-MM-yyyy'), 'Gandhi Jayanti'), 
+  (parsedatetime('26-01-2020', 'dd-MM-yyyy'), 'Republic Day')
+  ; 
 
 CREATE TABLE school (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -35,21 +45,54 @@ CREATE TABLE school (
   address VARCHAR(300)
 );
 
+INSERT INTO school (name, phone, address) VALUES 
+  ('VET', '9901057180', 'JP Nagar')
+  ;
+
 CREATE TABLE daysofweek (
   id INT AUTO_INCREMENT PRIMARY KEY,
   day VARCHAR(20)
 );
 
+INSERT INTO daysofweek (day) VALUES 
+  (Monday),
+  (Tuesday),
+  (Wednesday),
+  (Thursday),
+  (Friday),
+  (Saturday),
+  (Sunday)
+  ; 
+
 CREATE TABLE period (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  start_time time,
-  end_time time
+  start_time TIME,
+  end_time TIME
 );
+
+INSERT INTO period (start_time, end_time) VALUES 
+  (PARSEDATETIME('09:00', 'HH:MM'), PARSEDATETIME('09:30', 'HH:MM')),
+  (PARSEDATETIME('09:30', 'HH:MM'), PARSEDATETIME('10:00', 'HH:MM')),
+  (PARSEDATETIME('10:15', 'HH:MM'), PARSEDATETIME('10:45', 'HH:MM'))
+  (PARSEDATETIME('10:45', 'HH:MM'), PARSEDATETIME('11:15', 'HH:MM'))
+  (PARSEDATETIME('11:45', 'HH:MM'), PARSEDATETIME('12:15', 'HH:MM'))
+  (PARSEDATETIME('12:15', 'HH:MM'), PARSEDATETIME('12:45', 'HH:MM'))
+  (PARSEDATETIME('01:00', 'HH:MM'), PARSEDATETIME('01:30', 'HH:MM'))
+  (PARSEDATETIME('01:30', 'HH:MM'), PARSEDATETIME('02:00', 'HH:MM'))
+  ;
 
 CREATE TABLE role (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(50)
 );
+
+INSERT INTO role (name) VALUES 
+  ('Teacher')
+  ('Student')
+  ('Parent')
+  ('Principal')
+  ('Admin')
+  ;
 
 CREATE TABLE classes (
   id INT AUTO_INCREMENT  PRIMARY KEY,
@@ -90,6 +133,7 @@ CREATE TABLE timetable (
 );
 
 CREATE TABLE teaching (
+  id INT AUTO_INCREMENT PRIMARY KEY,
   classes_id INT,
   teacher_id INT,
   subject_id INT,
@@ -111,7 +155,7 @@ CREATE TABLE leave (
   reference_id INT,
   reason VARCHAR(500),
   approved_date DATE,
-  approver_id DATE,
+  approver_id INT,
   foreign key (status_id) references leavestatus(id),
   foreign key (reference_id, approver_id) references users(id)
 );
@@ -178,7 +222,7 @@ CREATE TABLE material (
   foreign key (classes_id) references classes(id),
   foreign key (subject_id) references subject(id),
   foreign key (chapter_id) references chapter(id),
-  foreign key (classes_id) references classes(id)
+  foreign key (material_type) references materialtypes(id)
 );
 
 INSERT INTO daysofweek (day) VALUES

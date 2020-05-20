@@ -11,5 +11,21 @@ public class Materialtypes {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    private String materialType;
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getMaterialType() {
+		return materialType;
+	}
+
+	public void setMaterialType(String materialType) {
+		this.materialType = materialType;
+	} 
+    
+    
 
 }
