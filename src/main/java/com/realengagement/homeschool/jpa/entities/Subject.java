@@ -13,7 +13,7 @@ public class Subject {
     private Long id;
 
     private String subjectName;
-    private String classesId;
+    private Long classesId;
 
     public Long getId() {
         return id;
@@ -27,12 +27,11 @@ public class Subject {
         this.subjectName = subjectName;
     }
 
-    public String getClassesId() {
+    public Long getClassesId() {
         return classesId;
     }
 
-    public void setClassesId(String classesId) {
+    public void setClassesId(Long classesId) {
         this.classesId = classesId;
     }
-
 }

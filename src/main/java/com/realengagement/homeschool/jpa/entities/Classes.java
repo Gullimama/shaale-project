@@ -8,6 +8,11 @@ import javax.persistence.Id;
 @Entity
 public class Classes {
 
+    public Classes() {}
+    public Classes(Long id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

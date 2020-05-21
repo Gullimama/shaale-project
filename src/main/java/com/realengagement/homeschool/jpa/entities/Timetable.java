@@ -12,12 +12,34 @@ public class Timetable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private Long dayId;
     private Long classesId;
     private Long subjectId;
     private Long periodId;
+    private Long teachingId;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getTeachingId() {
+        return teachingId;
+    }
+
+    public void setTeachingId(Long teachingId) {
+        this.teachingId = teachingId;
+    }
 
     public Long getId() {
         return id;
+    }
+
+    public Long getDayId() {
+        return dayId;
+    }
+
+    public void setDayId(Long dayId) {
+        this.dayId = dayId;
     }
 
     public Long getClassesId() {

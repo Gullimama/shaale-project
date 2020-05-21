@@ -13,9 +13,17 @@ public class Period {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private Long classesId;
     private Time startTime;
     private Time endTime;
 
+    public Long getClassesId() {
+        return classesId;
+    }
+
+    public void setClassesId(Long classesId) {
+        this.classesId = classesId;
+    }
 
     public Long getId() {
         return id;

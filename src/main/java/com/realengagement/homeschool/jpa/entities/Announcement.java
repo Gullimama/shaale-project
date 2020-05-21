@@ -20,7 +20,7 @@ public class Announcement {
 	private Date dated; 
 	private Long subjectId; 
 	private String topic; 
-	private String data; 
+	private String datum;
 	private Long authorId;
 	
 	public Long getId() {
@@ -56,11 +56,11 @@ public class Announcement {
 	public void setTopic(String topic) {
 		this.topic = topic;
 	}
-	public String getData() {
-		return data;
+	public String getDatum() {
+		return datum;
 	}
-	public void setData(String data) {
-		this.data = data;
+	public void setDatum(String datum) {
+		this.datum = datum;
 	}
 	public Long getAuthorId() {
 		return authorId;

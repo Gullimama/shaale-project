@@ -20,7 +20,7 @@ public class Archivedclasses {
 	private Long subjectId; 
 	private Long teacherId; 
 	private String videourl; 
-	private String type; 
+	private String typeOfClass;
 	private Long chapterId;
 	public Long getId() {
 		return id;
@@ -61,11 +61,11 @@ public class Archivedclasses {
 	public void setVideourl(String videourl) {
 		this.videourl = videourl;
 	}
-	public String getType() {
-		return type;
+	public String getTypeOfClass() {
+		return typeOfClass;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setTypeOfClass(String typeOfClass) {
+		this.typeOfClass = typeOfClass;
 	}
 	public Long getChapterId() {
 		return chapterId;

@@ -18,6 +18,7 @@ public class Attendance {
 	private Date dated; 
 	private Long periodId; 
 	private Long duration;
+	private Long teachingId;
 	
 	public Long getId() {
 		return id;
@@ -45,8 +46,17 @@ public class Attendance {
 	}
 	public void setDuration(Long duration) {
 		this.duration = duration;
-	} 
-	
-	
+	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getTeachingId() {
+		return teachingId;
+	}
+
+	public void setTeachingId(Long teachingId) {
+		this.teachingId = teachingId;
+	}
 }

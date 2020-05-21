@@ -10,6 +10,11 @@ import java.util.Date;
 @Entity
 public class Users {
 
+    public Users() {}
+    public Users(Long id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
