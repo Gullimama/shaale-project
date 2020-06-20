@@ -17,6 +17,18 @@ public class School {
     private String phone; 
     
     private String address;
+    
+    private Long principalId; 
+    
+    
+
+	public Long getPrincipalId() {
+		return principalId;
+	}
+
+	public void setPrincipalId(Long principalId) {
+		this.principalId = principalId;
+	}
 
 	public Long getId() {
 		return id;

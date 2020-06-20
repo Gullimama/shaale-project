@@ -1,4 +1,4 @@
-package com.realengagement.homeschool.aggregates.classteacher;
+package com.realengagement.homeschool.models.aggregates;
 
 import com.realengagement.homeschool.jpa.entities.*;
 
@@ -10,7 +10,7 @@ public class TeacherTimetable {
     private List<Period> periods;
     private List<Subject> subjects;
     private List<Classes> classes;
-    private List<com.realengagement.homeschool.jpa.entities.Timetable> timetables;
+    private List<Timetable> timetables;
 
     public List<Daysofweek> getDaysofweek() {
         return daysofweek;

@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 
 @Entity
@@ -25,6 +28,8 @@ public class Users {
     private Long classesId;
     private Long roleId;
     private String email;
+    
+    @JsonIgnore
     private String password;
     private Long referenceId;
 

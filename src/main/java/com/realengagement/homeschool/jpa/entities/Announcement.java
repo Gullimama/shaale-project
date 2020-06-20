@@ -15,6 +15,7 @@ public class Announcement {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 	
+    // 0=TeacherAnnouncment, -1=SchoolAnnouncement
 	private Long classesId; 
 	private Time timed; 
 	private Date dated; 

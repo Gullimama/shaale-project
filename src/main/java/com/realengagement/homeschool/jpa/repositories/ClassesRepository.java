@@ -1,11 +1,11 @@
 package com.realengagement.homeschool.jpa.repositories;
 
-import com.realengagement.homeschool.jpa.entities.Classes;
-import com.realengagement.homeschool.jpa.entities.Subject;
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import com.realengagement.homeschool.jpa.entities.Classes;
 
 @Component
 public interface ClassesRepository extends CrudRepository<Classes, Long> {

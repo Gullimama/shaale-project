@@ -14,4 +14,5 @@ public interface TeachingRepository extends CrudRepository<Teaching, Long> {
 
     List<Teaching> findByTeacherId(Long id);
     List<Teaching> findByTeacherIdAndClassesId(Long teacherId, Long classesId);
+    List<Teaching> findByClassesId(Long classesId); 
 }

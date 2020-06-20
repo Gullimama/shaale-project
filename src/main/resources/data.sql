@@ -38,17 +38,6 @@ INSERT INTO holiday (dated, reason) VALUES
   (parsedatetime('26-01-2020', 'dd-MM-yyyy'), 'Republic Day')
   ; 
 
-CREATE TABLE school (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(100),
-  phone VARCHAR(20),
-  address VARCHAR(300)
-);
-
-INSERT INTO school (name, phone, address) VALUES 
-  ('VET', '9901057180', 'JP Nagar')
-  ;
-
 CREATE TABLE daysofweek (
   id INT AUTO_INCREMENT PRIMARY KEY,
   day VARCHAR(20)
@@ -70,9 +59,9 @@ CREATE TABLE role (
 );
 
 INSERT INTO role (name) VALUES 
-  ('Teacher'),
-  ('Student'),
-  ('Parent'),
+  ('TEACHER'),
+  ('STUDENT'),
+  ('PARENT'),
   ('Principal'),
   ('Admin')
   ;
@@ -88,7 +77,9 @@ INSERT INTO classes (classes_no, section_name) VALUES
   (5, 'B'),
   (6, 'A'),
   (6, 'B'),
-  (6, 'C')
+  (6, 'C'),
+  (0, 'TEACHERS'), 
+  (-1, 'SCHOOL')
   ;
 
 CREATE TABLE users (
@@ -114,7 +105,31 @@ INSERT INTO users (full_name, dob, gender, classes_id, role_id, email, phone, pa
   ('Amogh Raj', parsedatetime('08-09-1993', 'dd-MM-yyyy'), 'Male', 1, 2, 'amogh@gmail.com', '9901057184', 'asdf', null),
   ('Raghavendra Rao', parsedatetime('02-11-1960', 'dd-MM-yyyy'), 'Male', null, 3, 'raghavendra.rao@gmail.com', '9986482753', 'asdf', 1),
   ('Shashikala', parsedatetime('02-11-1980', 'dd-MM-yyyy'), 'Female', 1, 1, 'shashikala@gmail.com', '9986482754', 'asdf', null),
-  ('Hema Malini', parsedatetime('02-11-1983', 'dd-MM-yyyy'), 'Female', null, 1, 'hema.malini@gmail.com', '9986482755', 'asdf', null)
+  ('Hema Malini', parsedatetime('02-11-1983', 'dd-MM-yyyy'), 'Female', null, 1, 'hema.malini@gmail.com', '9986482755', 'asdf', null),
+  ('Jaya Principal', parsedatetime('02-11-1963', 'dd-MM-yyyy'), 'Female', null, null, 'japa.principal@gmail.com', '9986482757', 'asdf', null),
+  
+  ('Pooja Jaiswal', parsedatetime('08-05-1993', 'dd-MM-yyyy'), 'Male', 1, 2, 'hrgpras@gmail.com', '9901057180', 'asdf', null),
+  ('Motilal Junjunwala', parsedatetime('08-06-1993', 'dd-MM-yyyy'), 'Male', 1, 2, 'hemanth@gmail.com', '9901057181', 'asdf', null),
+  ('Faisal Shareef', parsedatetime('08-07-1993', 'dd-MM-yyyy'), 'Male', 1, 2, 'nithin@gmail.com', '9901057182', 'asdf', null),
+  ('Praneeth Reddy', parsedatetime('08-08-1993', 'dd-MM-yyyy'), 'Male', 1, 2, 'rajeev@gmail.com', '9901057183', 'asdf', null),
+  ('Vivek Ganager', parsedatetime('08-09-1993', 'dd-MM-yyyy'), 'Male', 1, 2, 'amogh@gmail.com', '9901057184', 'asdf', null),
+  ('Rakshith Shetty', parsedatetime('02-11-1960', 'dd-MM-yyyy'), 'Male', null, 3, 'raghavendra.rao@gmail.com', '9986482753', 'asdf', 1),
+  ('Shalini Rao', parsedatetime('02-11-1980', 'dd-MM-yyyy'), 'Female', 1, 1, 'shashikala@gmail.com', '9986482754', 'asdf', null),
+  ('Vinuthashee', parsedatetime('02-11-1983', 'dd-MM-yyyy'), 'Female', null, 1, 'hema.malini@gmail.com', '9986482755', 'asdf', null),
+  ('Cinthia Joseph', parsedatetime('02-11-1963', 'dd-MM-yyyy'), 'Female', null, null, 'japa.principal@gmail.com', '9986482757', 'asdf', null)
+  ;
+  
+CREATE TABLE school (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  phone VARCHAR(20),
+  address VARCHAR(300),
+  principal_id INT, 
+  foreign key(principal_id) references users(id)
+);
+
+INSERT INTO school (name, phone, address, principal_id) VALUES 
+  ('VET', '9901057180', 'JP Nagar', 9)
   ;
 
 CREATE TABLE period (
@@ -175,7 +190,8 @@ INSERT INTO teaching (classes_id, teacher_id, subject_id) VALUES
   (1, 7, 1),
   (1, 7, 6),
   (1, 8, 7),
-  (1, 8, 9)
+  (1, 8, 9),
+  (2, 7, 3)
   ;
 
 CREATE TABLE timetable (
@@ -193,6 +209,8 @@ CREATE TABLE timetable (
 );
 
 INSERT INTO timetable (day_id, classes_id, subject_id, teaching_id, period_id) VALUES
+  (1, 2, 3, 5, 9),
+
   (1, 1, 1, 1, 1),
   (1, 1, 6, 2, 2),
   (1, 1, 7, 3, 4),
@@ -214,7 +232,7 @@ INSERT INTO timetable (day_id, classes_id, subject_id, teaching_id, period_id) V
   (3, 1, 1, 1, 1),
   (3, 1, 6, 2, 2),
   (3, 1, 7, 3, 4),
-  (3, 1, 9, 4, 5),
+  --(3, 1, 9, 4, 5),
   (3, 1, 1, 1, 6),
   (3, 1, 6, 2, 8),
   (3, 1, 7, 3, 9),
@@ -277,7 +295,8 @@ CREATE TABLE leave (
 
 INSERT INTO leave (start_date, end_date, status_id, reference_id, reason, approved_date, approver_id) VALUES
   (parsedatetime('08-05-2020', 'dd-MM-yyyy'), parsedatetime('09-05-1993', 'dd-MM-yyyy'), 1, 1, 'out of station', null, null),
-  (parsedatetime('18-05-2020', 'dd-MM-yyyy'), parsedatetime('19-05-1993', 'dd-MM-yyyy'), 2, 1, 'fever', parsedatetime('20-05-1993', 'dd-MM-yyyy'), 7)
+  (parsedatetime('18-05-2020', 'dd-MM-yyyy'), parsedatetime('19-05-1993', 'dd-MM-yyyy'), 2, 1, 'fever', parsedatetime('20-05-1993', 'dd-MM-yyyy'), 7),
+  (parsedatetime('18-05-2020', 'dd-MM-yyyy'), parsedatetime('19-05-1993', 'dd-MM-yyyy'), 2, 7, 'fever', parsedatetime('20-05-1993', 'dd-MM-yyyy'), 9)
   ;
 
 CREATE TABLE attendance (
@@ -291,6 +310,35 @@ CREATE TABLE attendance (
   foreign key (period_id) references period(id),
   foreign key (teaching_id) references teaching(id)
 );
+
+INSERT INTO attendance (user_id, dated, period_id, duration, teaching_id) VALUES 
+  (1, parsedatetime('08-05-2020 GMT', 'dd-MM-yyyy', 'en', 'IST'), 1, 60, 1), 
+  (1, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 2, 50, 1), 
+  (1, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 4, 60, 1), 
+  (1, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 5, 60, 1), 
+  (1, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 6, 40, 1), 
+  (1, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 8, 60, 1), 
+  (1, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 9, 60, 1), 
+  (1, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 10, 60, 1), 
+  (2, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 1, 60, 1), 
+  (2, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 2, 40, 1), 
+  (2, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 4, 60, 1), 
+  (2, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 5, 60, 1), 
+  (2, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 6, 50, 1), 
+  (2, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 8, 60, 1), 
+  (2, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 9, 60, 1), 
+  (2, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 10, 60, 1),
+  
+  (3, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 1, 60, 1), 
+  (3, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 2, 40, 1), 
+  (3, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 4, 60, 1), 
+  (3, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 5, 60, 1), 
+  (3, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 6, 50, 1), 
+  (3, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 8, 60, 1), 
+  (3, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 9, 60, 1), 
+  (3, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 10, 60, 1)
+  
+; 
 
 CREATE TABLE announcement (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -307,8 +355,10 @@ CREATE TABLE announcement (
 );
 
 INSERT INTO announcement (classes_id, dated, timed, subject_id, topic, datum, author_id) VALUES
-  (1, parsedatetime('05-05-2020', 'dd-MM-yyyy'), PARSEDATETIME('09:00', 'HH:mm'), null, 'Excursion', 'Picnic to Santanur', 7),
-  (1, parsedatetime('15-05-2020', 'dd-MM-yyyy'), PARSEDATETIME('13:00', 'HH:mm'), 1, 'Grammar-Video', 'Video published for last class on Grammar', 7)
+  (7, parsedatetime('05-05-2020', 'dd-MM-yyyy'), PARSEDATETIME('09:00', 'HH:mm'), null, 'Excursion', 'Picnic to Santanur', 9),
+  (1, parsedatetime('05-05-2020', 'dd-MM-yyyy'), PARSEDATETIME('09:00', 'HH:mm'), null, 'Class Assignment', 'Indian Prime Ministers Project', 7),
+  (1, parsedatetime('15-05-2020', 'dd-MM-yyyy'), PARSEDATETIME('13:00', 'HH:mm'), 1, 'Grammar-Video', 'Video published for last class on Grammar', 7),
+  (6, parsedatetime('15-05-2020', 'dd-MM-yyyy'), PARSEDATETIME('13:00', 'HH:mm'), null, 'Salary Increment', 'Update on Teachers salaries', 9)
   ;
 
 CREATE TABLE chapter (

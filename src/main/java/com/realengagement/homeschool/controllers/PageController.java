@@ -11,5 +11,10 @@ public class PageController {
     public String inbox(Model model) {
         return "inbox";
     }
+    
+    @RequestMapping("/")
+    public String login(Model model) {
+    	return "login"; 
+    }
 
 }

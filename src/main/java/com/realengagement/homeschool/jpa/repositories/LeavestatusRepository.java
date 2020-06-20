@@ -9,4 +9,5 @@ import java.util.List;
 
 public interface LeavestatusRepository extends CrudRepository<Leavestatus, Long> {
     Leavestatus findById(long id);
+    Leavestatus findByStatus(String status); 
 }
