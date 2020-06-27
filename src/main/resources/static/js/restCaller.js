@@ -1,6 +1,5 @@
 var baseUrl = "http://" + "localhost:8080"; 
 
-
 function getRestCaller(url, type, successCallback) {
 	console.log(url); 
 	$.ajax({

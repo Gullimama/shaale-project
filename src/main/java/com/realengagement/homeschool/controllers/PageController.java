@@ -12,7 +12,7 @@ public class PageController {
         return "inbox";
     }
     
-    @RequestMapping("/")
+    @RequestMapping("/login")
     public String login(Model model) {
     	return "login"; 
     }

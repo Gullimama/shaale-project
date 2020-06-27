@@ -3,10 +3,19 @@ var userTimetableUrl = "/timetable/user/"
 
 function getTimetable() {
 	// depending upon role, call the correct function.
-	if(globalUserRole === "ClassTeacher" || globalUserRole === "Student") {
+	if(globalUserRole === "ClassTeacher" || globalUserRole === "Student" || globalUserRole === "Parent") {
 		getClassTimetable(); 
-	} else { // for Principal and SubjectTeacher by default.
+	} else if (globalUserRole === "SubjectTeacher"){ // for Principal and SubjectTeacher by default.
 		getUserTimetable(); 
+	} else if(globalUserRole === "Principal") {
+		// capture TabularForm values into globals; 
+//		displayTimetableComponents(); 
+		tabularFormClassInput = parseInt(document.getElementById("tabularClassDropdown").value); 
+		tabularFormSectionInput = document.getElementById("tabularSectionDropdown").value; 
+		globalClassId = globalClassesObjects.find(classes => classes.classesNo === tabularFormClassInput && classes.sectionName === tabularFormSectionInput).id;
+		getClassTimetable(); 
+	} else if(globalUserRole === "Admin") {
+		
 	}
 }
 
@@ -23,13 +32,14 @@ function getClassTimetable() {
 }
 
 function populateTimetable(timetableData) {
-	populateHeaderJumbotron(); 
-	hideAndShowRelevantComponents(); 
+	globalOnPageOption = "Timetable";
+	dataTableClear(); 
+	populateHeaderJumbotronForTimetable(); 
+	hideAndShowRelevantTimetableComponents(); 
 	populateTimetableDetails(timetableData); 
-	dataTableAjaxReload(); 
 }
 
-function populateHeaderJumbotron() {
+function populateHeaderJumbotronForTimetable() {
 	document.getElementById("dataTableHeader").innerHTML = ""; 
 	document.getElementById("dataTableBody").innerHTML = ""; 
 	document.getElementById("pageHeaderTitle").innerHTML = "Timetable";
@@ -42,20 +52,14 @@ function populateHeaderJumbotron() {
 	}
 }
 
-function hideAndShowRelevantComponents() {
-	hideMainComponents(); 
-	document.getElementById("datatableHolder").style.display= "block"; 
+function hideAndShowRelevantTimetableComponents() {
+	hideMainSection(); 
+	displayTimetableComponents(); 
 }
 
 function populateTimetableDetails(timetableData) {
 	populateTimeTableHeader(timetableData);
 	populateDayPeriods(timetableData); 
-}
-
-function dataTableAjaxReload() {
-// $('#dataTable').DataTable().destroy();
-// $('#dataTable').empty();
-// $('#dataTable').DataTable().ajax.reload();
 }
 
 function populateDayPeriods(timetableData) {
@@ -89,7 +93,7 @@ function populateDayPeriods(timetableData) {
 											.find(x => x.id===timeTableRowData.subjectId);
 				subject = subject.subjectName; 
 				
-				if (globalUserRole === "ClassTeacher" || globalUserRole === "Student") {
+				if (globalUserRole === "ClassTeacher" || globalUserRole === "Student" || globalUserRole === "Principal" || globalUserRole === "Parent") {
 					var teacherName = timetableData.teachers
 												.find(teacher => teacher.id === timetableData.teachings
 														.find(teaching => teaching.id===timeTableRowData.teachingId).teacherId);

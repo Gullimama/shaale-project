@@ -312,7 +312,7 @@ CREATE TABLE attendance (
 );
 
 INSERT INTO attendance (user_id, dated, period_id, duration, teaching_id) VALUES 
-  (1, parsedatetime('08-05-2020 GMT', 'dd-MM-yyyy', 'en', 'IST'), 1, 60, 1), 
+  (1, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 1, 60, 1), 
   (1, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 2, 50, 1), 
   (1, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 4, 60, 1), 
   (1, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 5, 60, 1), 
@@ -337,7 +337,6 @@ INSERT INTO attendance (user_id, dated, period_id, duration, teaching_id) VALUES
   (3, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 8, 60, 1), 
   (3, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 9, 60, 1), 
   (3, parsedatetime('08-05-2020', 'dd-MM-yyyy', 'en', 'IST'), 10, 60, 1)
-  
 ; 
 
 CREATE TABLE announcement (
