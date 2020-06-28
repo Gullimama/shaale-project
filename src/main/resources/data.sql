@@ -73,13 +73,13 @@ CREATE TABLE classes (
 );
 
 INSERT INTO classes (classes_no, section_name) VALUES
+  (0, 'TEACHERS'), 
+  (-1, 'SCHOOL'),
   (5, 'A'),
   (5, 'B'),
   (6, 'A'),
   (6, 'B'),
-  (6, 'C'),
-  (0, 'TEACHERS'), 
-  (-1, 'SCHOOL')
+  (6, 'C')
   ;
 
 CREATE TABLE users (
@@ -353,12 +353,12 @@ CREATE TABLE announcement (
   foreign key (subject_id) references subject(id)
 );
 
-INSERT INTO announcement (classes_id, dated, timed, subject_id, topic, datum, author_id) VALUES
-  (7, parsedatetime('05-05-2020', 'dd-MM-yyyy'), PARSEDATETIME('09:00', 'HH:mm'), null, 'Excursion', 'Picnic to Santanur', 9),
-  (1, parsedatetime('05-05-2020', 'dd-MM-yyyy'), PARSEDATETIME('09:00', 'HH:mm'), null, 'Class Assignment', 'Indian Prime Ministers Project', 7),
-  (1, parsedatetime('15-05-2020', 'dd-MM-yyyy'), PARSEDATETIME('13:00', 'HH:mm'), 1, 'Grammar-Video', 'Video published for last class on Grammar', 7),
-  (6, parsedatetime('15-05-2020', 'dd-MM-yyyy'), PARSEDATETIME('13:00', 'HH:mm'), null, 'Salary Increment', 'Update on Teachers salaries', 9)
-  ;
+--INSERT INTO announcement (classes_id, dated, timed, subject_id, topic, datum, author_id) VALUES
+--  (7, parsedatetime('05-05-2020', 'dd-MM-yyyy'), PARSEDATETIME('09:00', 'HH:mm'), null, 'Excursion', 'Picnic to Santanur', 9),
+--  (1, parsedatetime('05-05-2020', 'dd-MM-yyyy'), PARSEDATETIME('09:00', 'HH:mm'), null, 'Class Assignment', 'Indian Prime Ministers Project', 7),
+--  (1, parsedatetime('15-05-2020', 'dd-MM-yyyy'), PARSEDATETIME('13:00', 'HH:mm'), 1, 'Grammar-Video', 'Video published for last class on Grammar', 7),
+--  (6, parsedatetime('15-05-2020', 'dd-MM-yyyy'), PARSEDATETIME('13:00', 'HH:mm'), null, 'Salary Increment', 'Update on Teachers salaries', 9)
+--  ;
 
 CREATE TABLE chapter (
   id INT AUTO_INCREMENT PRIMARY KEY,

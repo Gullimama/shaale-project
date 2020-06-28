@@ -22,6 +22,11 @@ public class Announcement {
 	private Long subjectId; 
 	private String topic; 
 	private String datum;
+	@Override
+	public String toString() {
+		return "Announcement [id=" + id + ", classesId=" + classesId + ", timed=" + timed + ", dated=" + dated
+				+ ", subjectId=" + subjectId + ", topic=" + topic + ", datum=" + datum + ", authorId=" + authorId + "]";
+	}
 	private Long authorId;
 	
 	public Long getId() {

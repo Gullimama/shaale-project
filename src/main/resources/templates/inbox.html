@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+<title>Inbox - ScreenEdu</title>
+
+<link href="css/styles.css" rel="stylesheet" />
+<link href="css/custom.css" rel="stylesheet" />
+<link
+	href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"
+	rel="stylesheet" crossorigin="anonymous" />
+<link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script data-search-pseudo-elements defer
+	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js"
+	crossorigin="anonymous"></script>
+</head>
+<body class="nav-fixed">
+	<nav class="topnav navbar navbar-expand shadow navbar-light bg-white"
+		id="sidenavAccordion">
+		<a class="navbar-brand d-none d-sm-block" href="https://screenedu.in">ScreenEdu</a>
+		<button
+			class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2"
+			id="sidebarToggle" href="#">
+			<i data-feather="menu"></i>
+		</button>
+		<form class="form-inline mr-auto d-none d-lg-block">
+			<input class="form-control form-control-solid mr-sm-2" type="search"
+				placeholder="Search" aria-label="Search" />
+		</form>
+		<ul class="navbar-nav align-items-center ml-auto">
+			<li class="nav-item dropdown no-caret mr-3"><a
+				class="nav-link dropdown-toggle" id="navbarDropdownDocs"
+				href="javascript:void(0);" role="button" data-toggle="dropdown"
+				aria-haspopup="true" aria-expanded="false"><div
+						class="d-inline d-md-none font-weight-500">Subj. T. View</div>
+					<div class="d-none d-md-inline font-weight-500">Subject
+						Teacher View</div> </a></li>
+			<li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
+				<a class="btn btn-icon btn-transparent-dark dropdown-toggle"
+				id="navbarDropdownAlerts" href="javascript:void(0);" role="button"
+				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+					data-feather="bell"></i></a>
+				<div
+					class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up"
+					aria-labelledby="navbarDropdownAlerts">
+					<h6 class="dropdown-header dropdown-notifications-header">
+						<i class="mr-2" data-feather="bell"></i>Alerts Center
+					</h6>
+					<a class="dropdown-item dropdown-notifications-item" href="#!"><div
+							class="dropdown-notifications-item-icon bg-warning">
+							<i data-feather="activity"></i>
+						</div>
+						<div class="dropdown-notifications-item-content">
+							<div class="dropdown-notifications-item-content-details">December
+								29, 2019</div>
+							<div class="dropdown-notifications-item-content-text">This
+								is an alert message. It's nothing serious, but it requires your
+								attention.</div>
+						</div></a><a class="dropdown-item dropdown-notifications-item" href="#!"><div
+							class="dropdown-notifications-item-icon bg-info">
+							<i data-feather="bar-chart"></i>
+						</div>
+						<div class="dropdown-notifications-item-content">
+							<div class="dropdown-notifications-item-content-details">December
+								22, 2019</div>
+							<div class="dropdown-notifications-item-content-text">A new
+								monthly report is ready. Click here to view!</div>
+						</div></a><a class="dropdown-item dropdown-notifications-item" href="#!"><div
+							class="dropdown-notifications-item-icon bg-danger">
+							<i class="fas fa-exclamation-triangle"></i>
+						</div>
+						<div class="dropdown-notifications-item-content">
+							<div class="dropdown-notifications-item-content-details">December
+								8, 2019</div>
+							<div class="dropdown-notifications-item-content-text">Critical
+								system failure, systems shutting down.</div>
+						</div></a><a class="dropdown-item dropdown-notifications-item" href="#!"><div
+							class="dropdown-notifications-item-icon bg-success">
+							<i data-feather="user-plus"></i>
+						</div>
+						<div class="dropdown-notifications-item-content">
+							<div class="dropdown-notifications-item-content-details">December
+								2, 2019</div>
+							<div class="dropdown-notifications-item-content-text">New
+								user request. Woody has requested access to the organization.</div>
+						</div></a><a class="dropdown-item dropdown-notifications-footer" href="#!">View
+						All Alerts</a>
+				</div>
+			</li>
+			<li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
+				<a class="btn btn-icon btn-transparent-dark dropdown-toggle"
+				id="navbarDropdownMessages" href="javascript:void(0);" role="button"
+				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+					data-feather="mail"></i></a>
+				<div
+					class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up"
+					aria-labelledby="navbarDropdownMessages">
+					<h6 class="dropdown-header dropdown-notifications-header">
+						<i class="mr-2" data-feather="mail"></i>Message Center
+					</h6>
+					<a class="dropdown-item dropdown-notifications-item" href="#!"><img
+						class="dropdown-notifications-item-img"
+						src="https://source.unsplash.com/vTL_qy03D1I/60x60" />
+						<div class="dropdown-notifications-item-content">
+							<div class="dropdown-notifications-item-content-text">Lorem
+								ipsum dolor sit amet, consectetur adipisicing elit, sed do
+								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+								enim ad minim veniam, quis nostrud exercitation ullamco laboris
+								nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+								in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+								nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+								sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+							<div class="dropdown-notifications-item-content-details">Emily
+								Fowler · 58m</div>
+						</div></a><a class="dropdown-item dropdown-notifications-item" href="#!"><img
+						class="dropdown-notifications-item-img"
+						src="https://source.unsplash.com/4ytMf8MgJlY/60x60" />
+						<div class="dropdown-notifications-item-content">
+							<div class="dropdown-notifications-item-content-text">Lorem
+								ipsum dolor sit amet, consectetur adipisicing elit, sed do
+								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+								enim ad minim veniam, quis nostrud exercitation ullamco laboris
+								nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+								in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+								nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+								sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+							<div class="dropdown-notifications-item-content-details">Diane
+								Chambers · 2d</div>
+						</div></a><a class="dropdown-item dropdown-notifications-footer" href="#!">Read
+						All Messages</a>
+				</div>
+			</li>
+			<li class="nav-item dropdown no-caret mr-3 dropdown-user"><a
+				class="btn btn-icon btn-transparent-dark dropdown-toggle"
+				id="navbarDropdownUserImage" href="javascript:void(0);"
+				role="button" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"><img class="img-fluid"
+					src="https://source.unsplash.com/QAB-WJcbgJk/60x60" /></a>
+				<div
+					class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up"
+					aria-labelledby="navbarDropdownUserImage">
+					<h6 class="dropdown-header d-flex align-items-center">
+						<img class="dropdown-user-img"
+							src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
+						<div class="dropdown-user-details">
+							<div class="dropdown-user-details-name">Garcia Valerie</div>
+							<div class="dropdown-user-details-email">gvalerie@theindianhighschool.com</div>
+						</div>
+					</h6>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#!"><div
+							class="dropdown-item-icon">
+							<i data-feather="settings"></i>
+						</div> Account</a><a class="dropdown-item" href="#!"><div
+							class="dropdown-item-icon">
+							<i data-feather="log-out"></i>
+						</div> Logout</a>
+				</div></li>
+		</ul>
+	</nav>
+	
+	
+	
+	<!-- Options Menu | Sidebar. -->
+	<div id="layoutSidenav">
+		<div id="layoutSidenav_nav">
+			<nav class="sidenav shadow-right sidenav-light">
+				<div class="sidenav-menu">
+					<div class="nav accordion" id="accordionSidenav">
+						<div class="sidenav-menu-heading">Core</div>
+						<a id="timetableOption" class="nav-link" href="#timetable"
+							onclick="getTimetable(); ">
+							<div class="nav-link-icon">
+								<i data-feather="calendar"></i>
+							</div> Timetable
+						</a>
+						<div id="interfaceOptionHeader" class="sidenav-menu-heading">Interface</div>
+						<a id="attendanceOption" class="nav-link" href="#attendance"
+							onclick="getClassAttendance(); ">
+							<div class="nav-link-icon">
+								<i data-feather="users"></i>
+							</div> Attendance
+						</a> <a id="announcementOption" class="nav-link collapsed"
+							href="#annoucements" data-toggle="collapse"
+							data-target="#collapseComponentsForAnnouncements" aria-expanded="false"
+							aria-controls="collapseComponents"><div class="nav-link-icon">
+								<i data-feather="package"></i>
+							</div> Announcements
+							<div class="sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div></a>
+						<div class="collapse" id="collapseComponentsForAnnouncements"
+							data-parent="#accordionSidenav">
+							<nav class="sidenav-menu-nested nav">
+								<a id="makeAnnoucementButton" class="nav-link" href="#makeAnnouncements" onclick="newAnnouncementForm(); ">Make</a>
+								<a id="viewClassAnnouncementButton" class="nav-link" href="#viewAnnouncements" onclick="getClassAnnouncementsForRole(); ">View Class<span class="badge badge-primary ml-2">New!</span></a> 
+								<a id="viewSchoolAnnouncementButton" class="nav-link" href="#viewSchoolAnnoucements" onclick="getSchoolAnnouncements(); ">View School</a> 
+								<a id="viewPrincipalAnnouncementButton" class="nav-link" href="#viewPrincipalAnnouncements" onclick="getPrincipalAnnouncements(); ">View Teacher</a>
+							</nav>
+						</div>
+						<a id="leaveManagementOption" class="nav-link collapsed"
+							href="javascript:void(0);" data-toggle="collapse"
+							data-target="#collapseComponentsForLeaveManagement" aria-expanded="false"
+							aria-controls="collapseUtilities"><div class="nav-link-icon">
+								<i data-feather="pocket"></i>
+							</div> Leave Management
+							<div class="sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div></a>
+						<div class="collapse" id="collapseComponentsForLeaveManagement"
+							data-parent="#accordionSidenav">
+							<nav class="sidenav-menu-nested nav">
+								<a id="pendingLeaveButton" class="nav-link" href="#pendingLeaves" onclick="getPendingLeavesTable(this);">Pending<span class="badge badge-primary ml-2">New!</span></a> 
+								<a id="allLeaveButton" class="nav-link" href="#allLeaves" onclick="getAllLeavesTable(this);">All Leaves</a> 
+								<a id="myLeaveButton" class="nav-link" href="#myLeaves" onclick="getMyLeavesTable(this);">My Leaves</a> 
+								<a id="newLeaveButton" class="nav-link" href="#applyLeave" onclick="newLeaveForm(this);">Apply</a>
+							</nav>
+						</div>
+						<a id="ptmOption" class="nav-link collapsed"
+							href="javascript:void(0);" data-toggle="collapse"
+							data-target="#collapseComponentsForPTM" aria-expanded="false"
+							aria-controls="collapseComponents"><div class="nav-link-icon">
+								<i data-feather="clock"></i>
+							</div> Parent Meetings
+							<div class="sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div></a>
+						<div class="collapse" id="collapseComponentsForPTM"
+							data-parent="#accordionSidenav">
+							<nav class="sidenav-menu-nested nav">
+								<a id="newPtmButton" class="nav-link" href="#newPtm" onclick="newPtmForm(); ">New</a> 
+								<a id="previousPtmButton" class="nav-link" href="#previousPtm" onclick="getAllPtmMeetings(); ">Previous</a>
+							</nav>
+						</div>
+
+
+						<!-- Conduct Class Form -->
+						<a id="attendeesOption" style="display: none;"
+							class="nav-link collapsed" href="javascript:void(0);"
+							data-toggle="collapse" data-target="#collapseComponentsForAttendees"
+							aria-expanded="false" aria-controls="collapseComponents"><div
+								class="nav-link-icon">
+								<i data-feather="user-check"></i>
+							</div> Attendees <span class="badge badge-primary ml-2">Doubt</span>
+							<div class="sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div></a>
+						<div class="collapse" id="collapseComponentsForAttendees"
+							data-parent="#accordionSidenav">
+							<nav class="sidenav-menu-nested nav">
+								<p>
+									<b>Rocky Das</b> - 09:37s <span class="badge badge-primary ml-2">Doubt</span>
+								</p>
+								<p>
+									<b>Guruprasad Rao</b> - 09:37s
+								</p>
+								<p>
+									<b>Faizaan Mohammed</b> - 01:37s
+								</p>
+								<p>
+									<b>Ritesh Narasimha</b> - 00:00s
+								</p>
+								<p>
+									<b>Puneet Pandey</b> - 04:30s
+								</p>
+								<p>
+									<b>Praneeth Reddy</b> - 09:37s
+								</p>
+								<p>
+									<b>Vivek Ganager</b> - 09:37s
+								</p>
+							</nav>
+						</div>
+						<a id="sessionOption" style="display: none;"
+							class="nav-link collapsed" href="javascript:void(0);"
+							data-toggle="collapse" data-target="#collapseComponentsForSession"
+							aria-expanded="false" aria-controls="collapseComponents"><div
+								class="nav-link-icon">
+								<i data-feather="pause"></i>
+							</div> Session Management
+							<div class="sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div></a>
+						<div class="collapse" id="collapseComponentsForSession"
+							data-parent="#accordionSidenav">
+							<nav class="sidenav-menu-nested nav">
+								<a id="startClassButton" class="nav-link" href="#resumeClass" onclick="startClass(); ">Start/Resume</a> 
+								<a id="pauseClassButton" class="nav-link" href="#pauseClass" onclick="pauseClass(); ">Pause</a> 
+								<a id="screenShareButton" class="nav-link" href="#screenshare" onclick="screenShare(); ">Share Screen</a>
+							</nav>
+						</div>
+						<a id="archivedClasses" style="display: none;" class="nav-link"
+							href="#archivedClasses" onclick="archivedClassesForm(); ">
+							<div class="nav-link-icon">
+								<i data-feather="monitor"></i>
+							</div> View Archived Classes
+						</a>
+					</div>
+				</div>
+				<div class="sidenav-footer">
+					<div class="sidenav-footer-content">
+						<div class="sidenav-footer-subtitle">Logged in as:</div>
+						<div class="sidenav-footer-title">Garcia Valerie</div>
+					</div>
+				</div>
+			</nav>
+		</div>
+		
+		
+		
+		
+		
+		<div id="layoutSidenav_content">
+			<main>
+				<div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+					<div class="container-fluid">
+						<div class="page-header-content">
+							<h1 class="page-header-title">
+								<div class="page-header-icon"> <i id="pageHeaderIcon" data-feather="calendar"></i> </div>
+								<span id="pageHeaderTitle"></span>
+							</h1>
+							<div id="pageHeaderBody" class="page-header-subtitle"></div>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid mt-n10" id="tableHolder">
+					<div class="card mb-2">
+						<div class="card-body">
+							<!-- Table Data Form -->
+							<form  id="tabularForm">
+								<div class="form-group form-inline" id="tabularClassSectionDropdowns">
+									<label class="m-1" for="tabularClassDropdown">Class</label><select
+										class="form-control m-1" id="tabularClassDropdown">
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option selected="selected">5</option>
+									</select>
+									<label class="ml-2" for="tabularSectionDropdown">Section</label><select
+										class="form-control m-1" id="tabularSectionDropdown">
+										<option selected="selected">A</option>
+										<option>B</option>
+										<option>C</option>
+									</select>
+									<button class="btn btn-primary m-3" type="button" onclick="submitTabularForm(); ">Submit</button>
+								</div>
+								<div class="form-group form-inline" id="tabularAttendanceDates">
+									<button class="btn btn-primary m-3" type="button" onclick="getPreviousAttendance()">&lt;
+										Previous Day</button>
+									<input class="form-control" id="attendanceDate" type="date" onchange="handleDateChange(this); return false; ">
+									<button class="btn btn-primary m-3" type="button" onclick="getNextAttendance(); ">Next
+										Day &gt;</button>
+								</div>
+							</form>
+
+
+
+							<div class="datatable table-responsive" id="datatableHolder">
+								<table class="table table-bordered table-hover" id="dataTable"
+									width="100%" cellspacing="0">
+									<thead id="dataTableHeader">
+									</thead>
+									<tbody id="dataTableBody">
+									</tbody>
+								</table>
+							</div>
+
+
+
+							<!-- FORM -->
+							<form id="announcementForm" style="display: none;">
+								<div class="form-group form-inline" id="announcementClassSections">
+									<label class="m-1" for="announcementClassDropdown">Class</label><select
+										class="form-control m-1" id="announcementClassDropdown">
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option selected="selected">5</option>
+									</select>
+<!-- 								</div> -->
+<!-- 								<div class="form-group" id="announcementSection"> -->
+									<label class="ml-2" for="announcementSectionDropdown">Section</label><select
+										class="form-control m-1" id="announcementSectionDropdown">
+										<option selected="selected">A</option>
+										<option>B</option>
+										<option>C</option>
+									</select>
+								</div>
+								<div class="form-group" id="announcementType">
+									<label for="announcementTypeDropdown">Announcement Type</label><select
+										class="form-control" id="announcementTypeDropdown">
+										<option>Teachers Announcement</option>
+										<option>School Announcement</option>
+									</select>
+								</div>
+								<div class="form-group" id="announcementTopic">
+									<label for="announcementTopicInput">Topic</label><input id="announcementTopicInput"
+										class="form-control">
+								</div>
+								<div class="form-group" id="announcementMessage">
+									<label for="announcementMessageInput">Message</label>
+									<textarea id="announcementMessageInput" class="form-control" rows="5"></textarea>
+								</div>
+
+								<button class="btn btn-primary" type="button"
+									onclick="submitAnnoucementRequest(); ">Submit</button>
+								<button class="btn btn-danger" type="button" onclick="cancelAnnouncementRequest(); ">Cancel</button>
+							</form>
+
+							<!-- Leave Management - FORM -->
+							<form id="leaveForm" style="display: none">
+								<div class="form-group">
+									<label for="leaveStartDate">Leave Start Date</label><input
+										class="form-control" id="leaveStartDate" type="date">
+								</div>
+								<div class="form-group">
+									<label for="leaveEndDate">Leave End Date</label><input
+										class="form-control" id="leaveEndDate" type="date">
+								</div>
+
+								<div class="form-group">
+									<label for="leaveMessage">Reason</label>
+									<textarea class="form-control" id="leaveMessage" rows="3"></textarea>
+								</div>
+
+								<button class="btn btn-primary" type="button"
+									onclick="submitLeaveRequest(); ">Submit</button>
+								<button class="btn btn-danger" type="button" onclick="cancelLeaveRequest(); ">Cancel</button>
+							</form>
+		
+							<!-- Parent's Teacher's Meeting - FORM -->					
+							<form id="ptmForm" style="display: none;">
+								<div class="form-group" id="ptmClass">
+									<label for="ptmClassDropdown">Class</label><select
+										class="form-control" id="ptmClassDropdown">
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+									</select>
+								</div>
+								<div class="form-group" id="ptmSection">
+									<label for="ptmSectionDropdown">Section</label><select
+										class="form-control" id="ptmSectionDropdown">
+										<option>A</option>
+										<option>B</option>
+										<option>C</option>
+									</select>
+								</div>
+								<div class="form-group" id="ptmStudent">
+									<label for="ptmStudentId">Student ID</label><select
+										class="form-control" id="ptmStudentId">
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="ptmStudentName">Student Name</label><input
+										class="form-control" id="ptmStudentName" disabled="">
+								</div>
+								<div class="form-group">
+									<label for="ptmDate">Meeting Date</label><input
+										class="form-control" id="ptmDate" type="date">
+								</div>
+
+								<div class="form-group">
+									<label for="ptmTime">Meeting Start Time</label><input
+										class="form-control" id="ptmTime" type="time">
+								</div>
+								<div class="form-group">
+									<label for="ptmMessage">Reason</label>
+									<textarea class="form-control" id="ptmMessage" rows="3"></textarea>
+								</div>
+
+								<button class="btn btn-primary" type="button" onclick="newPtmRequest(); ">Submit</button>
+								<button class="btn btn-danger" type="button" onclick="cancelPtmRequest(); ">Cancel</button>
+							</form>
+
+							<div id="classBroadcast" style="display:none; " class="embed-responsive embed-responsive-16by9">
+								<iframe class="embed-responsive-item"
+									src="https://www.youtube-nocookie.com/embed/7FfKaIgArJ8?controls=0&amp;modestbranding=0"
+									allowfullscreen></iframe>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+
+
+			</main>
+			<footer class="footer mt-auto footer-light">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-6 small">Copyright &copy; ScreenEdu 2020</div>
+						<div class="col-md-6 text-md-right small">
+							<a href="#!">Privacy Policy</a> &middot; <a href="#!">Terms
+								&amp; Conditions</a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+	<script src="js/scripts.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<!-- 	<script src="assets/demo/chart-area-demo.js"></script> -->
+<!-- 	<script src="assets/demo/chart-bar-demo.js"></script> -->
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+<!-- 	<script src="assets/demo/datatables-demo.js"></script> -->
+	<script src="/js/timetableHandler.js"></script>
+	<script src="/js/announcementManagement.js"></script>
+	<script src="/js/attendanceManagement.js"></script>
+	<script src="/js/leaveManagement.js"></script>
+	<script src="/js/ptmManagement.js"></script>
+	<script src="/js/conductclass.js"></script>
+	<script src="/js/restCaller.js"></script>
+	<script src="/js/prototypeEnhancements.js"></script>
+	<script src="/js/dataTableHandler.js"></script>
+	<script src="/js/tabularFormHandler.js"></script>
+	<script src="/js/onload.js"></script>
+	<script src="/js/globals.js"></script>
+	<script src="/js/componentDisplays.js"></script>
+</body>
+</html>
